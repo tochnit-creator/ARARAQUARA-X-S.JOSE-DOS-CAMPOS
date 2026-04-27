@@ -7,7 +7,7 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:#0f1117;color:#f0f2f8;font-family:'Segoe UI',Tahoma,sans-serif;min-height:100vh}
-.wrap{max-width:900px;margin:0 auto;padding:2rem 1.5rem}
+.wrap{max-width:960px;margin:0 auto;padding:2rem 1.5rem}
 .hdr{margin-bottom:1.4rem;padding-bottom:1rem;border-bottom:1px solid #2a3050}
 .hdr-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:.4rem}
 .hdr-title{font-size:20px;font-weight:700;color:#f0f2f8}
@@ -45,8 +45,6 @@ body{background:#0f1117;color:#f0f2f8;font-family:'Segoe UI',Tahoma,sans-serif;m
 .snum{width:28px;height:28px;border-radius:50%;background:rgba(79,142,247,.15);color:#4f8ef7;border:1px solid rgba(79,142,247,.3);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;margin-top:2px}
 .sh4{font-size:13px;font-weight:700;color:#f0f2f8;margin-bottom:2px}
 .sp{font-size:12px;color:#8b93b0;line-height:1.5}
-.map-g{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.map-c{background:#1a1f32;border:1px solid #2a3050;border-radius:12px;padding:1rem;text-align:center}
 .rb{background:rgba(79,142,247,.08);border:1px solid rgba(79,142,247,.25);border-radius:12px;padding:1rem 1.2rem;margin-top:12px}
 .rb h4{font-size:13px;font-weight:700;color:#4f8ef7;margin-bottom:5px}
 .rb p{font-size:12px;color:#8b93b0;line-height:1.5}
@@ -87,8 +85,6 @@ body{background:#0f1117;color:#f0f2f8;font-family:'Segoe UI',Tahoma,sans-serif;m
 .ecard{background:#181c27;border:1px solid #2a3050;border-radius:11px;padding:14px 16px;margin-bottom:10px}
 .ecard:hover{border-color:#3a4060}
 .ehdr{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:7px}
-.enome{font-size:14px;font-weight:700;color:#f0f2f8}
-.etipo{font-size:11px;padding:3px 9px;border-radius:20px;border:1px solid}
 .esvs{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:7px}
 .esv{font-size:11px;padding:2px 8px;border-radius:20px;background:#252d46;color:#8b93b0;border:1px solid #2a3050}
 .esv.d{background:rgba(79,142,247,.12);color:#4f8ef7;border-color:rgba(79,142,247,.25)}
@@ -105,10 +101,25 @@ body{background:#0f1117;color:#f0f2f8;font-family:'Segoe UI',Tahoma,sans-serif;m
 .gi-info{font-size:12px;color:#8b93b0}
 .ref{font-size:11px;color:#8b93b0;margin-top:9px;padding:9px;background:#181c27;border-radius:7px;border:1px solid #2a3050}
 .ft{font-size:11px;color:#8b93b0;text-align:center;padding-top:10px;border-top:1px solid #2a3050;margin-top:16px;opacity:.7}
+.map-g{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
+.map-c{background:#1a1f32;border:1px solid #2a3050;border-radius:12px;padding:1rem;text-align:center}
+.dtbl{width:100%;border-collapse:collapse;font-size:12px}
+.dtbl th{color:#8b93b0;font-size:11px;text-transform:uppercase;letter-spacing:.3px;padding:6px 10px;border-bottom:1px solid #2a3050;text-align:left;font-weight:600}
+.dtbl td{padding:7px 10px;border-bottom:1px solid #2a3050;color:#f0f2f8}
+.dtbl tr:last-child td{border-bottom:none}
+.dtbl tr.out td{background:rgba(240,165,0,.04)}
+.dkm{text-align:right;font-weight:700}
+.dtm{text-align:right;color:#8b93b0;font-size:11px}
+.drd{color:#8b93b0;font-size:11px}
+.dsts{text-align:center}
+.pok{display:inline-block;font-size:10px;padding:2px 7px;border-radius:20px;background:rgba(46,204,113,.15);color:#2ecc71;border:1px solid rgba(46,204,113,.3)}
+.pno{display:inline-block;font-size:10px;padding:2px 7px;border-radius:20px;background:rgba(240,165,0,.12);color:#f0a500;border:1px solid rgba(240,165,0,.3)}
+.dftr{padding:7px 10px;background:#181c27;font-size:11px;color:#8b93b0;border-top:1px solid #2a3050}
 </style>
 </head>
 <body>
 <div class="wrap">
+
 <div class="hdr">
   <div class="hdr-top">
     <div class="hdr-title">Expansao Logistica &mdash; CD Interior SP</div>
@@ -116,6 +127,7 @@ body{background:#0f1117;color:#f0f2f8;font-family:'Segoe UI',Tahoma,sans-serif;m
   </div>
   <div class="hdr-sub">Base: Maua/SP &rarr; CD &rarr; Cidades atendidas &nbsp;|&nbsp; Dados: coluna V (media 11 meses)</div>
 </div>
+
 <div class="tab-grid" id="tabs">
   <button class="tb on" data-p="resumo">Resumo</button>
   <button class="tb" data-p="mapa">Cobertura</button>
@@ -126,6 +138,8 @@ body{background:#0f1117;color:#f0f2f8;font-family:'Segoe UI',Tahoma,sans-serif;m
   <button class="tb" data-p="tpl">Empresas 3PL</button>
   <button class="tb" data-p="galpoes">Galpoes</button>
 </div>
+
+<!-- ══ RESUMO ══ -->
 <div id="p-resumo" class="pnl on">
   <div class="metrics">
     <div class="met"><div class="met-l">Fat. interior/mes</div><div class="met-v">R$ 131k</div><div class="met-s">cidades ja ativas</div></div>
@@ -159,166 +173,113 @@ body{background:#0f1117;color:#f0f2f8;font-family:'Segoe UI',Tahoma,sans-serif;m
     <div class="step"><div class="snum">4</div><div><div class="sh4">Distribuicao final</div><div class="sp">Fretistas ou 3PL entregam nas cidades &mdash; D+1 / D+2</div></div></div>
   </div>
 </div>
-<style>
-.dist-wrap{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
-.dist-card{background:#1a1f32;border:1px solid #2a3050;border-radius:12px;overflow:hidden}
-.dist-header{padding:12px 16px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #2a3050}
-.dist-title{font-size:14px;font-weight:700}
-.dist-badge{font-size:11px;padding:3px 10px;border-radius:20px}
-.dist-table{width:100%;border-collapse:collapse}
-.dist-table th{font-size:11px;color:#8b93b0;text-transform:uppercase;letter-spacing:.4px;padding:7px 14px;border-bottom:1px solid #2a3050;text-align:left;font-weight:600;background:#181c27}
-.dist-table td{padding:8px 14px;border-bottom:1px solid #2a3050;font-size:13px;color:#f0f2f8}
-.dist-table tr:last-child td{border-bottom:none}
-.dist-table tr.out td{color:#f0a500}
-.dist-table tr.ok td{color:#f0f2f8}
-.dist-km{font-weight:700;text-align:right}
-.dist-time{text-align:right;color:#8b93b0;font-size:12px}
-.dist-status{text-align:center}
-.pill-ok{display:inline-block;font-size:10px;padding:2px 8px;border-radius:20px;background:rgba(46,204,113,.15);color:#2ecc71;border:1px solid rgba(46,204,113,.3)}
-.pill-no{display:inline-block;font-size:10px;padding:2px 8px;border-radius:20px;background:rgba(240,165,0,.12);color:#f0a500;border:1px solid rgba(240,165,0,.3)}
-.dist-footer{padding:8px 14px;background:#181c27;font-size:11px;color:#8b93b0;border-top:1px solid #2a3050}
-.dist-leg{display:flex;gap:16px;padding:10px 0 6px;font-size:12px;color:#8b93b0}
-.leg-dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:5px}
-</style>
 
+<!-- ══ COBERTURA ══ -->
 <div id="p-mapa" class="pnl">
-<!-- MAPAS DE RAIO -->
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px">
-  <div style="background:#1a1f32;border:1px solid #2a3050;border-radius:12px;padding:1rem;text-align:center">
-    <div style="font-size:13px;font-weight:700;color:#f0a500;margin-bottom:9px">Opcao A &mdash; Araraquara (raio 150km)</div>
-    <svg viewBox="0 0 260 290" width="100%">
-      <rect width="260" height="290" fill="#0f1117"/>
-      <circle cx="130" cy="160" r="100" fill="rgba(240,165,0,.07)" stroke="#f0a500" stroke-width="1" stroke-dasharray="5,4"/>
-      <circle cx="130" cy="160" r="8" fill="#f0a500"/>
-      <text x="130" y="149" fill="#f0a500" font-size="9.5" text-anchor="middle" font-weight="700">Araraquara</text>
-      <circle cx="108" cy="177" r="4.5" fill="#2ecc71"/><text x="93" y="190" fill="#2ecc71" font-size="8.5" text-anchor="middle">S.Carlos</text>
-      <circle cx="100" cy="148" r="4.5" fill="#2ecc71"/><text x="86" y="141" fill="#2ecc71" font-size="8.5" text-anchor="middle">Jau</text>
-      <circle cx="92" cy="185" r="4.5" fill="#2ecc71"/><text x="73" y="197" fill="#2ecc71" font-size="8.5" text-anchor="middle">Bauru</text>
-      <circle cx="120" cy="204" r="4.5" fill="#2ecc71"/><text x="120" y="217" fill="#2ecc71" font-size="8.5" text-anchor="middle">Avare</text>
-      <circle cx="152" cy="144" r="4.5" fill="#2ecc71"/><text x="167" y="138" fill="#2ecc71" font-size="8.5" text-anchor="middle">Rib.Preto</text>
-      <circle cx="164" cy="128" r="4.5" fill="#2ecc71"/><text x="178" y="122" fill="#2ecc71" font-size="8.5" text-anchor="middle">Franca</text>
-      <circle cx="159" cy="142" r="4.5" fill="#2ecc71"/><text x="176" y="154" fill="#2ecc71" font-size="8.5" text-anchor="middle">Batatais</text>
-      <circle cx="173" cy="156" r="4.5" fill="#2ecc71"/><text x="196" y="161" fill="#2ecc71" font-size="8.5" text-anchor="middle">Rio Preto</text>
-      <circle cx="60" cy="116" r="4.5" fill="#e74c3c"/><text x="46" y="109" fill="#e74c3c" font-size="8.5" text-anchor="middle">Tupa</text>
-      <circle cx="50" cy="86" r="4.5" fill="#e74c3c"/><text x="38" y="78" fill="#e74c3c" font-size="8.5" text-anchor="middle">Votuporanga</text>
-      <circle cx="38" cy="55" r="4.5" fill="#e74c3c"/><text x="34" y="47" fill="#e74c3c" font-size="8.5" text-anchor="middle">Fernandopolis</text>
-      <circle cx="215" cy="238" r="5.5" fill="#6c63ff"/>
-      <text x="215" y="252" fill="#6c63ff" font-size="8.5" text-anchor="middle">Maua</text>
-      <line x1="215" y1="238" x2="137" y2="163" stroke="#6c63ff" stroke-width="1" stroke-dasharray="3,3" opacity=".6"/>
-      <text x="192" y="204" fill="#6c63ff" font-size="7.5" text-anchor="middle">~270km</text>
-      <circle cx="14" cy="276" r="4" fill="#2ecc71"/><text x="22" y="280" fill="#2ecc71" font-size="8">Coberta</text>
-      <circle cx="76" cy="276" r="4" fill="#e74c3c"/><text x="84" y="280" fill="#e74c3c" font-size="8">Fora do raio</text>
-    </svg>
-    <div style="font-size:11px;color:#f0a500;margin-top:5px">8 de 11 cidades cobertas</div>
-  </div>
-  <div style="background:#1a1f32;border:1px solid #4f8ef7;border-radius:12px;padding:1rem;text-align:center;box-shadow:0 0 0 1px rgba(79,142,247,.15)">
-    <div style="font-size:13px;font-weight:700;color:#4f8ef7;margin-bottom:9px">Opcao B &mdash; S.J.Rio Preto (Recomendado) &#10003;</div>
-    <svg viewBox="0 0 260 290" width="100%">
-      <rect width="260" height="290" fill="#0f1117"/>
-      <circle cx="95" cy="108" r="100" fill="rgba(79,142,247,.07)" stroke="#4f8ef7" stroke-width="1" stroke-dasharray="5,4"/>
-      <circle cx="95" cy="108" r="8" fill="#4f8ef7"/>
-      <text x="95" y="97" fill="#4f8ef7" font-size="9.5" text-anchor="middle" font-weight="700">Rio Preto</text>
-      <circle cx="68" cy="91" r="4.5" fill="#2ecc71"/><text x="52" y="85" fill="#2ecc71" font-size="8.5" text-anchor="middle">Votuporanga</text>
-      <circle cx="56" cy="67" r="4.5" fill="#2ecc71"/><text x="46" y="59" fill="#2ecc71" font-size="8.5" text-anchor="middle">Fernandopolis</text>
-      <circle cx="77" cy="124" r="4.5" fill="#2ecc71"/><text x="61" y="136" fill="#2ecc71" font-size="8.5" text-anchor="middle">Tupa</text>
-      <circle cx="132" cy="98" r="4.5" fill="#2ecc71"/><text x="149" y="93" fill="#2ecc71" font-size="8.5" text-anchor="middle">Batatais</text>
-      <circle cx="140" cy="85" r="4.5" fill="#2ecc71"/><text x="157" y="78" fill="#2ecc71" font-size="8.5" text-anchor="middle">Franca</text>
-      <circle cx="114" cy="127" r="4.5" fill="#2ecc71"/><text x="129" y="139" fill="#2ecc71" font-size="8.5" text-anchor="middle">Jau</text>
-      <circle cx="129" cy="146" r="4.5" fill="#2ecc71"/><text x="145" y="156" fill="#2ecc71" font-size="8.5" text-anchor="middle">Araraquara</text>
-      <circle cx="110" cy="164" r="4.5" fill="#2ecc71"/><text x="96" y="177" fill="#2ecc71" font-size="8.5" text-anchor="middle">Bauru</text>
-      <circle cx="139" cy="158" r="4.5" fill="#2ecc71"/><text x="157" y="169" fill="#2ecc71" font-size="8.5" text-anchor="middle">S.Carlos</text>
-      <circle cx="122" cy="195" r="4.5" fill="#2ecc71"/><text x="122" y="208" fill="#2ecc71" font-size="8.5" text-anchor="middle">Avare</text>
-      <circle cx="146" cy="124" r="4.5" fill="#2ecc71"/><text x="163" y="118" fill="#2ecc71" font-size="8.5" text-anchor="middle">Rib.Preto</text>
-      <circle cx="215" cy="238" r="5.5" fill="#6c63ff"/>
-      <text x="215" y="252" fill="#6c63ff" font-size="8.5" text-anchor="middle">Maua</text>
-      <line x1="215" y1="238" x2="102" y2="112" stroke="#6c63ff" stroke-width="1" stroke-dasharray="3,3" opacity=".6"/>
-      <text x="176" y="183" fill="#6c63ff" font-size="7.5" text-anchor="middle">~400km</text>
-      <circle cx="14" cy="276" r="4" fill="#2ecc71"/><text x="22" y="280" fill="#2ecc71" font-size="8">Coberta (11/11)</text>
-    </svg>
-    <div style="font-size:11px;color:#2ecc71;margin-top:5px">11 de 11 cidades cobertas</div>
-  </div>
-</div>
-
-<!-- TABELAS DE DISTANCIA -->
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px">
-
-  <!-- TABELA ARARAQUARA -->
-  <div class="dist-card">
-    <div class="dist-header">
-      <div>
-        <div class="dist-title" style="color:#f0a500">Araraquara &rarr; Cidades</div>
-        <div style="font-size:11px;color:#8b93b0;margin-top:2px">Distancias reais por rodovia</div>
-      </div>
+  <div class="map-g">
+    <div class="map-c">
+      <div style="font-size:13px;font-weight:700;color:#f0a500;margin-bottom:9px">Opcao A &mdash; Araraquara (raio 150km)</div>
+      <svg viewBox="0 0 260 290" width="100%">
+        <rect width="260" height="290" fill="#0f1117"/>
+        <circle cx="130" cy="160" r="100" fill="rgba(240,165,0,.07)" stroke="#f0a500" stroke-width="1" stroke-dasharray="5,4"/>
+        <circle cx="130" cy="160" r="8" fill="#f0a500"/>
+        <text x="130" y="149" fill="#f0a500" font-size="9.5" text-anchor="middle" font-weight="700">Araraquara</text>
+        <circle cx="108" cy="177" r="4.5" fill="#2ecc71"/><text x="93" y="190" fill="#2ecc71" font-size="8.5" text-anchor="middle">S.Carlos 42km</text>
+        <circle cx="100" cy="148" r="4.5" fill="#2ecc71"/><text x="86" y="141" fill="#2ecc71" font-size="8.5" text-anchor="middle">Jau 82km</text>
+        <circle cx="92" cy="185" r="4.5" fill="#2ecc71"/><text x="72" y="198" fill="#2ecc71" font-size="8.5" text-anchor="middle">Bauru 112km</text>
+        <circle cx="120" cy="204" r="4.5" fill="#2ecc71"/><text x="120" y="217" fill="#2ecc71" font-size="8.5" text-anchor="middle">Avare 148km</text>
+        <circle cx="152" cy="144" r="4.5" fill="#2ecc71"/><text x="170" y="138" fill="#2ecc71" font-size="8.5" text-anchor="middle">Rib.Preto 78km</text>
+        <circle cx="164" cy="128" r="4.5" fill="#2ecc71"/><text x="180" y="121" fill="#2ecc71" font-size="8.5" text-anchor="middle">Franca 150km</text>
+        <circle cx="159" cy="142" r="4.5" fill="#2ecc71"/><text x="178" y="155" fill="#2ecc71" font-size="8.5" text-anchor="middle">Batatais 106km</text>
+        <circle cx="173" cy="157" r="4.5" fill="#2ecc71"/><text x="198" y="162" fill="#2ecc71" font-size="8.5" text-anchor="middle">Rio Preto 175km</text>
+        <circle cx="60" cy="116" r="4.5" fill="#e74c3c"/><text x="44" y="108" fill="#e74c3c" font-size="8.5" text-anchor="middle">Tupa 235km</text>
+        <circle cx="50" cy="86" r="4.5" fill="#e74c3c"/><text x="36" y="77" fill="#e74c3c" font-size="8.5" text-anchor="middle">Votuporanga 265km</text>
+        <circle cx="38" cy="55" r="4.5" fill="#e74c3c"/><text x="32" y="46" fill="#e74c3c" font-size="8.5" text-anchor="middle">Fernandopolis 273km</text>
+        <circle cx="215" cy="238" r="5.5" fill="#6c63ff"/><text x="215" y="252" fill="#6c63ff" font-size="8.5" text-anchor="middle">Maua</text>
+        <line x1="215" y1="238" x2="137" y2="163" stroke="#6c63ff" stroke-width="1" stroke-dasharray="3,3" opacity=".6"/>
+        <text x="192" y="206" fill="#6c63ff" font-size="7.5" text-anchor="middle">~270km</text>
+        <circle cx="14" cy="276" r="4" fill="#2ecc71"/><text x="22" y="280" fill="#2ecc71" font-size="8">Coberta</text>
+        <circle cx="76" cy="276" r="4" fill="#e74c3c"/><text x="84" y="280" fill="#e74c3c" font-size="8">Fora do raio</text>
+      </svg>
+      <div style="font-size:11px;color:#f0a500;margin-top:5px">8 de 11 cidades cobertas</div>
     </div>
-    <table class="dist-table">
-      <thead>
-        <tr>
-          <th>Cidade</th>
-          <th>Rodovia</th>
-          <th style="text-align:right">KM</th>
-          <th style="text-align:right">Tempo</th>
-          <th style="text-align:center">Status</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td>Sao Carlos</td><td style="font-size:11px;color:#8b93b0">SP-310</td><td class="dist-km" style="color:#2ecc71">42 km</td><td class="dist-time">~30 min</td><td class="dist-status"><span class="pill-ok">OK</span></td></tr>
-        <tr><td>Ribeirao Preto</td><td style="font-size:11px;color:#8b93b0">SP-310/SP-330</td><td class="dist-km" style="color:#2ecc71">78 km</td><td class="dist-time">~1h</td><td class="dist-status"><span class="pill-ok">OK</span></td></tr>
-        <tr><td>Jau</td><td style="font-size:11px;color:#8b93b0">SP-310/SP-225</td><td class="dist-km" style="color:#2ecc71">82 km</td><td class="dist-time">~1h</td><td class="dist-status"><span class="pill-ok">OK</span></td></tr>
-        <tr><td>Batatais</td><td style="font-size:11px;color:#8b93b0">SP-330/SP-334</td><td class="dist-km" style="color:#2ecc71">106 km</td><td class="dist-time">~1h 20min</td><td class="dist-status"><span class="pill-ok">OK</span></td></tr>
-        <tr><td>Bauru</td><td style="font-size:11px;color:#8b93b0">SP-310/SP-225</td><td class="dist-km" style="color:#2ecc71">112 km</td><td class="dist-time">~1h 20min</td><td class="dist-status"><span class="pill-ok">OK</span></td></tr>
-        <tr><td>Avare</td><td style="font-size:11px;color:#8b93b0">SP-225/SP-255</td><td class="dist-km" style="color:#2ecc71">148 km</td><td class="dist-time">~1h 50min</td><td class="dist-status"><span class="pill-ok">OK</span></td></tr>
-        <tr><td>Franca</td><td style="font-size:11px;color:#8b93b0">SP-330/SP-334</td><td class="dist-km" style="color:#2ecc71">150 km</td><td class="dist-time">~1h 50min</td><td class="dist-status"><span class="pill-ok">OK</span></td></tr>
-        <tr><td>S. J. Rio Preto</td><td style="font-size:11px;color:#8b93b0">SP-310/SP-425</td><td class="dist-km" style="color:#2ecc71">175 km</td><td class="dist-time">~2h 10min</td><td class="dist-status"><span class="pill-ok">OK</span></td></tr>
-        <tr style="background:rgba(240,165,0,.05)"><td><strong>Tupa</strong></td><td style="font-size:11px;color:#8b93b0">SP-294/SP-300</td><td class="dist-km" style="color:#f0a500">235 km</td><td class="dist-time" style="color:#f0a500">~3h</td><td class="dist-status"><span class="pill-no">Fora</span></td></tr>
-        <tr style="background:rgba(240,165,0,.05)"><td><strong>Votuporanga</strong></td><td style="font-size:11px;color:#8b93b0">SP-310/SP-425</td><td class="dist-km" style="color:#f0a500">265 km</td><td class="dist-time" style="color:#f0a500">~3h 20min</td><td class="dist-status"><span class="pill-no">Fora</span></td></tr>
-        <tr style="background:rgba(240,165,0,.05)"><td><strong>Fernandopolis</strong></td><td style="font-size:11px;color:#8b93b0">SP-310/SP-425</td><td class="dist-km" style="color:#f0a500">273 km</td><td class="dist-time" style="color:#f0a500">~3h 30min</td><td class="dist-status"><span class="pill-no">Fora</span></td></tr>
-      </tbody>
-    </table>
-    <div class="dist-footer">8 de 11 dentro do raio &bull; Tupa/Votuporanga/Fernandopolis: frete secundario inviavel</div>
-  </div>
-
-  <!-- TABELA RIO PRETO -->
-  <div class="dist-card" style="border-color:#4f8ef7">
-    <div class="dist-header" style="background:rgba(79,142,247,.05)">
-      <div>
-        <div class="dist-title" style="color:#4f8ef7">S. J. Rio Preto &rarr; Cidades</div>
-        <div style="font-size:11px;color:#8b93b0;margin-top:2px">Distancias reais por rodovia</div>
-      </div>
+    <div class="map-c" style="border-color:#4f8ef7">
+      <div style="font-size:13px;font-weight:700;color:#4f8ef7;margin-bottom:9px">Opcao B &mdash; S.J.Rio Preto &#10003; Recomendado</div>
+      <svg viewBox="0 0 260 290" width="100%">
+        <rect width="260" height="290" fill="#0f1117"/>
+        <circle cx="95" cy="108" r="100" fill="rgba(79,142,247,.07)" stroke="#4f8ef7" stroke-width="1" stroke-dasharray="5,4"/>
+        <circle cx="95" cy="108" r="8" fill="#4f8ef7"/>
+        <text x="95" y="97" fill="#4f8ef7" font-size="9.5" text-anchor="middle" font-weight="700">Rio Preto</text>
+        <circle cx="68" cy="91" r="4.5" fill="#2ecc71"/><text x="50" y="84" fill="#2ecc71" font-size="8.5" text-anchor="middle">Votuporanga 84km</text>
+        <circle cx="56" cy="67" r="4.5" fill="#2ecc71"/><text x="44" y="59" fill="#2ecc71" font-size="8.5" text-anchor="middle">Fernandopolis 116km</text>
+        <circle cx="77" cy="124" r="4.5" fill="#2ecc71"/><text x="60" y="136" fill="#2ecc71" font-size="8.5" text-anchor="middle">Tupa 168km</text>
+        <circle cx="132" cy="98" r="4.5" fill="#2ecc71"/><text x="150" y="92" fill="#2ecc71" font-size="8.5" text-anchor="middle">Batatais 160km</text>
+        <circle cx="140" cy="85" r="4.5" fill="#2ecc71"/><text x="157" y="78" fill="#2ecc71" font-size="8.5" text-anchor="middle">Franca 185km</text>
+        <circle cx="114" cy="127" r="4.5" fill="#2ecc71"/><text x="130" y="139" fill="#2ecc71" font-size="8.5" text-anchor="middle">Jau 190km</text>
+        <circle cx="129" cy="146" r="4.5" fill="#2ecc71"/><text x="146" y="156" fill="#2ecc71" font-size="8.5" text-anchor="middle">Araraquara 175km</text>
+        <circle cx="110" cy="164" r="4.5" fill="#2ecc71"/><text x="95" y="177" fill="#2ecc71" font-size="8.5" text-anchor="middle">Bauru 193km</text>
+        <circle cx="139" cy="158" r="4.5" fill="#2ecc71"/><text x="157" y="169" fill="#2ecc71" font-size="8.5" text-anchor="middle">S.Carlos 215km</text>
+        <circle cx="122" cy="195" r="4.5" fill="#2ecc71"/><text x="122" y="208" fill="#2ecc71" font-size="8.5" text-anchor="middle">Avare 285km</text>
+        <circle cx="146" cy="124" r="4.5" fill="#2ecc71"/><text x="164" y="118" fill="#2ecc71" font-size="8.5" text-anchor="middle">Rib.Preto 168km</text>
+        <circle cx="215" cy="238" r="5.5" fill="#6c63ff"/><text x="215" y="252" fill="#6c63ff" font-size="8.5" text-anchor="middle">Maua</text>
+        <line x1="215" y1="238" x2="102" y2="112" stroke="#6c63ff" stroke-width="1" stroke-dasharray="3,3" opacity=".6"/>
+        <text x="176" y="184" fill="#6c63ff" font-size="7.5" text-anchor="middle">~400km</text>
+        <circle cx="14" cy="276" r="4" fill="#2ecc71"/><text x="22" y="280" fill="#2ecc71" font-size="8">Coberta (11/11)</text>
+      </svg>
+      <div style="font-size:11px;color:#2ecc71;margin-top:5px">11 de 11 cidades cobertas</div>
     </div>
-    <table class="dist-table">
-      <thead>
-        <tr>
-          <th>Cidade</th>
-          <th>Rodovia</th>
-          <th style="text-align:right">KM</th>
-          <th style="text-align:right">Tempo</th>
-          <th style="text-align:center">Status</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td>Votuporanga</td><td style="font-size:11px;color:#8b93b0">SP-425</td><td class="dist-km" style="color:#2ecc71">84 km</td><td class="dist-time">~55 min</td><td class="dist-status"><span class="pill-ok">OK</span></td></tr>
-        <tr><td>Fernandopolis</td><td style="font-size:11px;color:#8b93b0">SP-425/SP-310</td><td class="dist-km" style="color:#2ecc71">116 km</td><td class="dist-time">~1h 20min</td><td class="dist-status"><span class="pill-ok">OK</span></td></tr>
-        <tr><td>Tupa</td><td style="font-size:11px;color:#8b93b0">SP-294/SP-300</td><td class="dist-km" style="color:#2ecc71">168 km</td><td class="dist-time">~2h</td><td class="dist-status"><span class="pill-ok">OK</span></td></tr>
-        <tr><td>Ribeirao Preto</td><td style="font-size:11px;color:#8b93b0">SP-310/SP-330</td><td class="dist-km" style="color:#2ecc71">168 km</td><td class="dist-time">~2h</td><td class="dist-status"><span class="pill-ok">OK</span></td></tr>
-        <tr><td>Araraquara</td><td style="font-size:11px;color:#8b93b0">SP-310</td><td class="dist-km" style="color:#2ecc71">175 km</td><td class="dist-time">~2h 10min</td><td class="dist-status"><span class="pill-ok">OK</span></td></tr>
-        <tr><td>Batatais</td><td style="font-size:11px;color:#8b93b0">SP-310/SP-334</td><td class="dist-km" style="color:#2ecc71">160 km</td><td class="dist-time">~2h</td><td class="dist-status"><span class="pill-ok">OK</span></td></tr>
-        <tr><td>Franca</td><td style="font-size:11px;color:#8b93b0">SP-310/BR-146</td><td class="dist-km" style="color:#2ecc71">185 km</td><td class="dist-time">~2h 10min</td><td class="dist-status"><span class="pill-ok">OK</span></td></tr>
-        <tr><td>Jau</td><td style="font-size:11px;color:#8b93b0">SP-310/SP-225</td><td class="dist-km" style="color:#2ecc71">190 km</td><td class="dist-time">~2h 20min</td><td class="dist-status"><span class="pill-ok">OK</span></td></tr>
-        <tr><td>Bauru</td><td style="font-size:11px;color:#8b93b0">SP-310/SP-225</td><td class="dist-km" style="color:#2ecc71">193 km</td><td class="dist-time">~2h 20min</td><td class="dist-status"><span class="pill-ok">OK</span></td></tr>
-        <tr><td>Sao Carlos</td><td style="font-size:11px;color:#8b93b0">SP-310</td><td class="dist-km" style="color:#4f8ef7">215 km</td><td class="dist-time">~2h 40min</td><td class="dist-status"><span class="pill-ok">OK</span></td></tr>
-        <tr><td>Avare</td><td style="font-size:11px;color:#8b93b0">SP-310/SP-225/SP-255</td><td class="dist-km" style="color:#4f8ef7">285 km</td><td class="dist-time">~3h 20min</td><td class="dist-status"><span class="pill-ok">Viavel</span></td></tr>
-      </tbody>
-    </table>
-    <div class="dist-footer">11 de 11 cidades cobertas &bull; Avare e a mais distante mas ainda viavel para fretista local</div>
   </div>
 
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px">
+    <div class="card" style="margin-bottom:0">
+      <div class="card-t" style="color:#f0a500">Araraquara &rarr; cada cidade</div>
+      <table class="dtbl">
+        <thead><tr><th>Cidade</th><th>Rodovia</th><th style="text-align:right">KM</th><th style="text-align:right">Tempo</th><th style="text-align:center">Status</th></tr></thead>
+        <tbody>
+          <tr><td>Sao Carlos</td><td class="drd">SP-310</td><td class="dkm" style="color:#2ecc71">42</td><td class="dtm">~30min</td><td class="dsts"><span class="pok">OK</span></td></tr>
+          <tr><td>Ribeirao Preto</td><td class="drd">SP-310/330</td><td class="dkm" style="color:#2ecc71">78</td><td class="dtm">~1h</td><td class="dsts"><span class="pok">OK</span></td></tr>
+          <tr><td>Jau</td><td class="drd">SP-310/225</td><td class="dkm" style="color:#2ecc71">82</td><td class="dtm">~1h</td><td class="dsts"><span class="pok">OK</span></td></tr>
+          <tr><td>Batatais</td><td class="drd">SP-330/334</td><td class="dkm" style="color:#2ecc71">106</td><td class="dtm">~1h20</td><td class="dsts"><span class="pok">OK</span></td></tr>
+          <tr><td>Bauru</td><td class="drd">SP-310/225</td><td class="dkm" style="color:#2ecc71">112</td><td class="dtm">~1h20</td><td class="dsts"><span class="pok">OK</span></td></tr>
+          <tr><td>Avare</td><td class="drd">SP-225/255</td><td class="dkm" style="color:#2ecc71">148</td><td class="dtm">~1h50</td><td class="dsts"><span class="pok">OK</span></td></tr>
+          <tr><td>Franca</td><td class="drd">SP-330/334</td><td class="dkm" style="color:#2ecc71">150</td><td class="dtm">~1h50</td><td class="dsts"><span class="pok">OK</span></td></tr>
+          <tr><td>S.J.Rio Preto</td><td class="drd">SP-310/425</td><td class="dkm" style="color:#2ecc71">175</td><td class="dtm">~2h10</td><td class="dsts"><span class="pok">OK</span></td></tr>
+          <tr class="out"><td><b>Tupa</b></td><td class="drd">SP-294/300</td><td class="dkm" style="color:#f0a500">235</td><td class="dtm" style="color:#f0a500">~3h</td><td class="dsts"><span class="pno">Fora</span></td></tr>
+          <tr class="out"><td><b>Votuporanga</b></td><td class="drd">SP-310/425</td><td class="dkm" style="color:#f0a500">265</td><td class="dtm" style="color:#f0a500">~3h20</td><td class="dsts"><span class="pno">Fora</span></td></tr>
+          <tr class="out"><td><b>Fernandopolis</b></td><td class="drd">SP-310/425</td><td class="dkm" style="color:#f0a500">273</td><td class="dtm" style="color:#f0a500">~3h30</td><td class="dsts"><span class="pno">Fora</span></td></tr>
+        </tbody>
+      </table>
+      <div class="dftr">8/11 dentro do raio &bull; Tupa/Votuporanga/Fernandopolis inviavel</div>
+    </div>
+    <div class="card" style="margin-bottom:0;border-color:#4f8ef7">
+      <div class="card-t" style="color:#4f8ef7">S.J.Rio Preto &rarr; cada cidade</div>
+      <table class="dtbl">
+        <thead><tr><th>Cidade</th><th>Rodovia</th><th style="text-align:right">KM</th><th style="text-align:right">Tempo</th><th style="text-align:center">Status</th></tr></thead>
+        <tbody>
+          <tr><td>Votuporanga</td><td class="drd">SP-425</td><td class="dkm" style="color:#2ecc71">84</td><td class="dtm">~55min</td><td class="dsts"><span class="pok">OK</span></td></tr>
+          <tr><td>Fernandopolis</td><td class="drd">SP-425/310</td><td class="dkm" style="color:#2ecc71">116</td><td class="dtm">~1h20</td><td class="dsts"><span class="pok">OK</span></td></tr>
+          <tr><td>Batatais</td><td class="drd">SP-310/334</td><td class="dkm" style="color:#2ecc71">160</td><td class="dtm">~2h</td><td class="dsts"><span class="pok">OK</span></td></tr>
+          <tr><td>Tupa</td><td class="drd">SP-294/300</td><td class="dkm" style="color:#2ecc71">168</td><td class="dtm">~2h</td><td class="dsts"><span class="pok">OK</span></td></tr>
+          <tr><td>Ribeirao Preto</td><td class="drd">SP-310/330</td><td class="dkm" style="color:#2ecc71">168</td><td class="dtm">~2h</td><td class="dsts"><span class="pok">OK</span></td></tr>
+          <tr><td>Araraquara</td><td class="drd">SP-310</td><td class="dkm" style="color:#2ecc71">175</td><td class="dtm">~2h10</td><td class="dsts"><span class="pok">OK</span></td></tr>
+          <tr><td>Franca</td><td class="drd">SP-310/BR-146</td><td class="dkm" style="color:#2ecc71">185</td><td class="dtm">~2h10</td><td class="dsts"><span class="pok">OK</span></td></tr>
+          <tr><td>Jau</td><td class="drd">SP-310/225</td><td class="dkm" style="color:#2ecc71">190</td><td class="dtm">~2h20</td><td class="dsts"><span class="pok">OK</span></td></tr>
+          <tr><td>Bauru</td><td class="drd">SP-310/225</td><td class="dkm" style="color:#2ecc71">193</td><td class="dtm">~2h20</td><td class="dsts"><span class="pok">OK</span></td></tr>
+          <tr><td>Sao Carlos</td><td class="drd">SP-310</td><td class="dkm" style="color:#4f8ef7">215</td><td class="dtm">~2h40</td><td class="dsts"><span class="pok">OK</span></td></tr>
+          <tr><td>Avare</td><td class="drd">SP-310/225/255</td><td class="dkm" style="color:#4f8ef7">285</td><td class="dtm">~3h20</td><td class="dsts"><span class="pok">Viavel</span></td></tr>
+        </tbody>
+      </table>
+      <div class="dftr">11/11 cidades cobertas &bull; Avare e a mais distante mas viavel</div>
+    </div>
+  </div>
+
+  <div class="rb">
+    <h4>Resumo comparativo de distancias</h4>
+    <p>Em Araraquara: menor distancia Sao Carlos 42km, maior viavel S.J.Rio Preto 175km. Tupa/Votuporanga/Fernandopolis acima de 230km &mdash; inviavel. Em S.J.Rio Preto: todas as 11 cidades dentro do alcance, com Votuporanga (84km) e Fernandopolis (116km) muito proximas &mdash; exatamente as que Araraquara nao cobre.</p>
+  </div>
 </div>
 
-<div class="rb">
-  <h4>Resumo comparativo</h4>
-  <p>Em Araraquara, o trecho mais curto e Sao Carlos (42 km) e o mais longo viavel e S. J. Rio Preto (175 km). Tupa, Votuporanga e Fernandopolis ficam acima de 230 km, tornando o custo do frete secundario inviavel. Em S. J. Rio Preto, todas as cidades estao dentro do alcance, com Votuporanga (84 km) e Fernandopolis (116 km) muito proximas &mdash; exatamente as que Araraquara nao consegue cobrir. Distancias baseadas em rodovias estaduais e federais do interior paulista.</p>
-</div>
-
+<!-- ══ COMPARATIVO ══ -->
 <div id="p-opcoes" class="pnl">
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px">
     <div class="cc"><span class="badge b-warn">Opcao A</span>
@@ -330,7 +291,7 @@ body{background:#0f1117;color:#f0f2f8;font-family:'Segoe UI',Tahoma,sans-serif;m
       <div class="row"><span class="rl">3PL local</span><span class="rv" style="color:#2ecc71">Sim (LMG)</span></div>
       <div class="row"><span class="rl">Noroeste paulista</span><span class="rv" style="color:#e74c3c">Limitado</span></div>
     </div>
-    <div class="cc win"><span class="badge b-acc">Recomendado</span>
+    <div class="cc win"><span class="badge b-acc">&#10003; Recomendado</span>
       <div style="font-size:16px;font-weight:700;color:#f0f2f8;margin-bottom:2px">S. J. Rio Preto</div>
       <div style="font-size:12px;color:#8b93b0;margin-bottom:12px">~400 km de Maua</div>
       <div class="row"><span class="rl">Cidades cobertas</span><span class="rv" style="color:#2ecc71">11 de 11</span></div>
@@ -342,6 +303,8 @@ body{background:#0f1117;color:#f0f2f8;font-family:'Segoe UI',Tahoma,sans-serif;m
   </div>
   <div class="card"><div class="card-t">Pontuacao por criterio</div><div id="crit-bars"></div></div>
 </div>
+
+<!-- ══ ROTAS ══ -->
 <div id="p-rotas" class="pnl">
   <div class="tgl" id="cd-tgl">
     <button class="tg on" data-cd="ara">Araraquara como CD</button>
@@ -349,6 +312,8 @@ body{background:#0f1117;color:#f0f2f8;font-family:'Segoe UI',Tahoma,sans-serif;m
   </div>
   <div id="route-c"></div>
 </div>
+
+<!-- ══ SIMULADOR ══ -->
 <div id="p-simulador" class="pnl">
   <div class="tgl" id="sim-tgl">
     <button class="tg on" data-sim="ara">Araraquara</button>
@@ -365,6 +330,8 @@ body{background:#0f1117;color:#f0f2f8;font-family:'Segoe UI',Tahoma,sans-serif;m
   <div class="simbox"><div style="font-size:13px;font-weight:700;color:#f0f2f8;margin-bottom:9px">Estimativa mensal</div><div id="sim-rows"></div></div>
   <div class="eqbox"><div style="font-size:13px;font-weight:700;color:#2ecc71;margin-bottom:9px">Ponto de equilibrio do CD</div><div id="eq-rows"></div></div>
 </div>
+
+<!-- ══ CRONOGRAMA ══ -->
 <div id="p-cronograma" class="pnl">
   <div class="card"><div class="card-t">Plano de acao &mdash; 6 meses</div>
     <div class="crono">
@@ -377,6 +344,8 @@ body{background:#0f1117;color:#f0f2f8;font-family:'Segoe UI',Tahoma,sans-serif;m
     </div>
   </div>
 </div>
+
+<!-- ══ EMPRESAS 3PL ══ -->
 <div id="p-tpl" class="pnl">
   <div class="aviso"><h4>Sobre esta lista</h4><p>Empresas identificadas em pesquisa como operadores logisticos ativos nas duas regioes. Valores dependem de volume e tipo de produto &mdash; contato direto para cotacao personalizada.</p></div>
   <div class="tgl" id="tpl-tgl">
@@ -385,6 +354,8 @@ body{background:#0f1117;color:#f0f2f8;font-family:'Segoe UI',Tahoma,sans-serif;m
   </div>
   <div id="tpl-c"></div>
 </div>
+
+<!-- ══ GALPOES ══ -->
 <div id="p-galpoes" class="pnl">
   <div class="tgl" id="gal-tgl">
     <button class="tg on" data-gal="rp">S. J. Rio Preto</button>
@@ -392,17 +363,22 @@ body{background:#0f1117;color:#f0f2f8;font-family:'Segoe UI',Tahoma,sans-serif;m
   </div>
   <div id="gal-c"></div>
 </div>
+
 <div class="ft">Dados: coluna V (media 11 meses) &mdash; aba Dados &mdash; Planilha Faturamento por Rota &nbsp;|&nbsp; Empresas 3PL pesquisadas Abril/2026</div>
 </div>
+
 <script>
 (function(){
 var simCD='ara';
+
 document.getElementById('tabs').addEventListener('click',function(e){
   var b=e.target.closest('.tb');if(!b)return;
   document.querySelectorAll('#tabs .tb').forEach(function(x){x.classList.remove('on')});
   document.querySelectorAll('.pnl').forEach(function(x){x.classList.remove('on')});
-  b.classList.add('on');document.getElementById('p-'+b.dataset.p).classList.add('on');
+  b.classList.add('on');
+  document.getElementById('p-'+b.dataset.p).classList.add('on');
 });
+
 function mkTgl(id,attr,cb){
   document.getElementById(id).addEventListener('click',function(e){
     var b=e.target.closest('.tg');if(!b||!b.dataset[attr])return;
@@ -415,20 +391,210 @@ mkTgl('sim-tgl','sim',function(v){simCD=v;calcSim();});
 mkTgl('tpl-tgl','tpl',renderTpl);
 mkTgl('gal-tgl','gal',renderGal);
 ['sl-v','sl-p','sl-t','sl-g'].forEach(function(id){document.getElementById(id).addEventListener('input',calcSim);});
-var crits=[{l:'Cobertura geografica',a:60,r:100},{l:'Custo frete primario',a:85,r:55},{l:'Oferta galpoes / 3PL',a:75,r:92},{l:'Fretistas locais',a:65,r:90},{l:'Infraestrutura viaria',a:75,r:92},{l:'Custo total operacional',a:80,r:62}];
-var ch='';crits.forEach(function(c){ch+='<div style="margin-bottom:13px"><div style="font-size:12px;color:#8b93b0;margin-bottom:5px">'+c.l+'</div><div style="display:flex;gap:7px;align-items:center;margin-bottom:3px"><span style="font-size:11px;width:72px;text-align:right;color:#f0a500">Araraquara</span><div style="flex:1;background:#2a3050;border-radius:3px;height:6px;overflow:hidden"><div style="width:'+c.a+'%;height:100%;background:#f0a500;border-radius:3px"></div></div><span style="font-size:11px;width:20px;color:#f0a500">'+c.a+'</span></div><div style="display:flex;gap:7px;align-items:center"><span style="font-size:11px;width:72px;text-align:right;color:#4f8ef7">Rio Preto</span><div style="flex:1;background:#2a3050;border-radius:3px;height:6px;overflow:hidden"><div style="width:'+c.r+'%;height:100%;background:#4f8ef7;border-radius:3px"></div></div><span style="font-size:11px;width:20px;color:#4f8ef7">'+c.r+'</span></div></div>';});
+
+// Criterios
+var crits=[
+  {l:'Cobertura geografica',a:60,r:100},
+  {l:'Custo frete primario',a:85,r:55},
+  {l:'Oferta galpoes / 3PL',a:75,r:92},
+  {l:'Fretistas locais',a:65,r:90},
+  {l:'Infraestrutura viaria',a:75,r:92},
+  {l:'Custo total operacional',a:80,r:62}
+];
+var ch='';
+crits.forEach(function(c){
+  ch+='<div style="margin-bottom:13px">';
+  ch+='<div style="font-size:12px;color:#8b93b0;margin-bottom:5px">'+c.l+'</div>';
+  ch+='<div style="display:flex;gap:7px;align-items:center;margin-bottom:3px">';
+  ch+='<span style="font-size:11px;width:72px;text-align:right;color:#f0a500">Araraquara</span>';
+  ch+='<div style="flex:1;background:#2a3050;border-radius:3px;height:6px;overflow:hidden"><div style="width:'+c.a+'%;height:100%;background:#f0a500;border-radius:3px"></div></div>';
+  ch+='<span style="font-size:11px;width:20px;color:#f0a500">'+c.a+'</span></div>';
+  ch+='<div style="display:flex;gap:7px;align-items:center">';
+  ch+='<span style="font-size:11px;width:72px;text-align:right;color:#4f8ef7">Rio Preto</span>';
+  ch+='<div style="flex:1;background:#2a3050;border-radius:3px;height:6px;overflow:hidden"><div style="width:'+c.r+'%;height:100%;background:#4f8ef7;border-radius:3px"></div></div>';
+  ch+='<span style="font-size:11px;width:20px;color:#4f8ef7">'+c.r+'</span></div></div>';
+});
 document.getElementById('crit-bars').innerHTML=ch;
-var rts={ara:{t:'Araraquara como CD',d:'~270 km de Maua',steps:[{l:'Maua/SP',i:'Av. Guaraciaba, 313'},{l:'SP-310 / Anhanguera',i:'Via Dutra + Anhanguera ou Washington Luis'},{l:'Araraquara CD',i:'Recepcao, conferencia e separacao por destino'}],cities:[{n:'Sao Carlos',k:'~45km',f:'nova',ok:1},{n:'Jau',k:'~80km',f:'nova',ok:1},{n:'Bauru',k:'~120km',f:'R$61.323',ok:1},{n:'Avare',k:'~110km',f:'nova',ok:1},{n:'Rib.Preto',k:'~90km',f:'proxima',ok:1},{n:'Franca',k:'~175km',f:'nova',ok:1},{n:'Batatais',k:'~150km',f:'nova',ok:1},{n:'Rio Preto',k:'~175km',f:'nova',ok:1},{n:'Tupa',k:'~230km',f:'nova',ok:0},{n:'Votuporanga',k:'~290km',f:'nova',ok:0},{n:'Fernandopolis',k:'~340km',f:'nova',ok:0}],warn:'Tupa, Votuporanga e Fernandopolis ficam acima de 200 km de Araraquara.'},rp:{t:'S. J. Rio Preto como CD',d:'~400 km de Maua',steps:[{l:'Maua/SP',i:'Av. Guaraciaba, 313'},{l:'SP-310 Washington Luis',i:'Rota principal direta ate Rio Preto'},{l:'Rio Preto CD',i:'Recepcao, conferencia e separacao por destino'}],cities:[{n:'Votuporanga',k:'~75km',f:'nova',ok:1},{n:'Fernandopolis',k:'~115km',f:'nova',ok:1},{n:'Tupa',k:'~140km',f:'nova',ok:1},{n:'Batatais',k:'~120km',f:'nova',ok:1},{n:'Franca',k:'~130km',f:'nova',ok:1},{n:'Jau',k:'~160km',f:'nova',ok:1},{n:'Araraquara',k:'~175km',f:'nova',ok:1},{n:'Bauru',k:'~190km',f:'R$61.323',ok:1},{n:'S.Carlos',k:'~210km',f:'nova',ok:1},{n:'Avare',k:'~280km',f:'nova',ok:1},{n:'Rib.Preto',k:'~115km',f:'proxima',ok:1}],warn:null}};
-function renderRoute(cd){var r=rts[cd],h='';h+='<div class="card"><div class="card-t">'+r.t+' <span style="font-size:11px;font-weight:400;color:#8b93b0">'+r.d+'</span></div>';r.steps.forEach(function(s,i){h+='<div style="display:flex;align-items:center;gap:9px;padding:9px 12px;border-radius:9px;background:#181c27;border:1px solid #2a3050;margin-bottom:5px">'+(i?'<span style="color:#4f8ef7;font-size:17px;flex-shrink:0">&rarr;</span>':'')+'<div><div style="font-weight:700;font-size:13px;color:#f0f2f8">'+s.l+'</div><div style="font-size:12px;color:#8b93b0;margin-top:1px">'+s.i+'</div></div></div>';});h+='</div><div class="card"><div class="card-t">Cidades atendidas</div><div class="cg">';r.cities.forEach(function(c){h+='<div class="ci '+(c.ok?'ok':'no')+'"><span style="font-weight:700">'+(c.ok?'OK':'!')+ ' '+c.n+'</span><span style="font-size:11px">'+c.f+'</span></div>';});h+='</div>'+(r.warn?'<div class="wb">'+r.warn+'</div>':'')+'</div>';document.getElementById('route-c').innerHTML=h;}
+
+// Rotas
+var rts={
+  ara:{t:'Araraquara como CD',d:'~270 km de Maua',
+    steps:[
+      {l:'Maua/SP',i:'Av. Guaraciaba, 313 - separacao e carregamento'},
+      {l:'SP-310 / Anhanguera',i:'Via Dutra + Anhanguera ou Washington Luis'},
+      {l:'Araraquara CD',i:'Recepcao, conferencia e separacao por destino'}
+    ],
+    cities:[
+      {n:'Sao Carlos',k:'42km',f:'nova',ok:1},{n:'Jau',k:'82km',f:'nova',ok:1},
+      {n:'Bauru',k:'112km',f:'R$61.323',ok:1},{n:'Avare',k:'148km',f:'nova',ok:1},
+      {n:'Rib.Preto',k:'78km',f:'proxima',ok:1},{n:'Franca',k:'150km',f:'nova',ok:1},
+      {n:'Batatais',k:'106km',f:'nova',ok:1},{n:'Rio Preto',k:'175km',f:'nova',ok:1},
+      {n:'Tupa',k:'235km',f:'nova',ok:0},{n:'Votuporanga',k:'265km',f:'nova',ok:0},
+      {n:'Fernandopolis',k:'273km',f:'nova',ok:0}
+    ],
+    warn:'Tupa (235km), Votuporanga (265km) e Fernandopolis (273km) ficam fora do raio viavel a partir de Araraquara.'},
+  rp:{t:'S. J. Rio Preto como CD',d:'~400 km de Maua',
+    steps:[
+      {l:'Maua/SP',i:'Av. Guaraciaba, 313 - separacao e carregamento'},
+      {l:'SP-310 Washington Luis',i:'Rota principal direta ate Rio Preto'},
+      {l:'Rio Preto CD',i:'Recepcao, conferencia e separacao por destino'}
+    ],
+    cities:[
+      {n:'Votuporanga',k:'84km',f:'nova',ok:1},{n:'Fernandopolis',k:'116km',f:'nova',ok:1},
+      {n:'Batatais',k:'160km',f:'nova',ok:1},{n:'Tupa',k:'168km',f:'nova',ok:1},
+      {n:'Rib.Preto',k:'168km',f:'proxima',ok:1},{n:'Araraquara',k:'175km',f:'nova',ok:1},
+      {n:'Franca',k:'185km',f:'nova',ok:1},{n:'Jau',k:'190km',f:'nova',ok:1},
+      {n:'Bauru',k:'193km',f:'R$61.323',ok:1},{n:'S.Carlos',k:'215km',f:'nova',ok:1},
+      {n:'Avare',k:'285km',f:'nova',ok:1}
+    ],
+    warn:null}
+};
+
+function renderRoute(cd){
+  var r=rts[cd],h='';
+  h+='<div class="card"><div class="card-t">'+r.t+' <span style="font-size:11px;font-weight:400;color:#8b93b0">'+r.d+'</span></div>';
+  r.steps.forEach(function(s,i){
+    h+='<div style="display:flex;align-items:center;gap:9px;padding:9px 12px;border-radius:9px;background:#181c27;border:1px solid #2a3050;margin-bottom:5px">';
+    if(i) h+='<span style="color:#4f8ef7;font-size:17px;flex-shrink:0">&rarr;</span>';
+    h+='<div><div style="font-weight:700;font-size:13px;color:#f0f2f8">'+s.l+'</div>';
+    h+='<div style="font-size:12px;color:#8b93b0;margin-top:1px">'+s.i+'</div></div></div>';
+  });
+  h+='</div><div class="card"><div class="card-t">Cidades atendidas</div><div class="cg">';
+  r.cities.forEach(function(c){
+    h+='<div class="ci '+(c.ok?'ok':'no')+'">';
+    h+='<span style="font-weight:700">'+(c.ok?'&#10003;':'&#9651;')+' '+c.n+'</span>';
+    h+='<span style="font-size:11px">'+c.k+' &bull; '+c.f+'</span></div>';
+  });
+  h+='</div>';
+  if(r.warn) h+='<div class="wb">'+r.warn+'</div>';
+  h+='</div>';
+  document.getElementById('route-c').innerHTML=h;
+}
 renderRoute('ara');
-function calcSim(){var v=+document.getElementById('sl-v').value,p=+document.getElementById('sl-p').value,t=+document.getElementById('sl-t').value,g=+document.getElementById('sl-g').value;document.getElementById('sv-v').textContent=v+' viagens';document.getElementById('sv-p').textContent=p+' ped/dia';document.getElementById('sv-t').textContent='R$ '+t.toLocaleString('pt-BR');document.getElementById('sv-g').textContent=g+' m2';var km=simCD==='ara'?270:400;var cp=Math.round(v*km*3.5),cd=Math.round(p*22*18),cg=Math.round(g*25),ct=cp+cd+cg;var fat=Math.round(p*22*t),mg=Math.round(((fat-ct)/fat)*100);var rows=[['Frete primario ('+v+'x ~'+km+'km)','R$ '+cp.toLocaleString('pt-BR'),0],['Distribuicao final (~R$18/entrega)','R$ '+cd.toLocaleString('pt-BR'),0],['Galpao (~R$25/m2)','R$ '+cg.toLocaleString('pt-BR'),0],['Total custo logistico','R$ '+ct.toLocaleString('pt-BR'),1],['Faturamento estimado','R$ '+fat.toLocaleString('pt-BR'),1],['Margem apos logistica',mg+'%',1]];var h='';rows.forEach(function(r){var vc=r[2]&&r[0].includes('Margem')?(mg>=0?'#2ecc71':'#e74c3c'):'#f0f2f8';h+='<div class="srow" style="'+(r[2]?'font-weight:700':'')+'"><span class="sl">'+r[0]+'</span><span style="color:'+vc+'">'+r[1]+'</span></div>';});document.getElementById('sim-rows').innerHTML=h;var pm=Math.ceil((ct/22)/t),fm=Math.round(pm*22*t),eq=p>=pm;var eh='';[['Custo total do CD/mes','R$ '+ct.toLocaleString('pt-BR'),'#2ecc71'],['Pedidos/dia para cobrir CD',pm+' pedidos/dia','#2ecc71'],['Faturamento minimo mensal','R$ '+fm.toLocaleString('pt-BR'),'#2ecc71'],['Situacao atual',eq?'Acima do equilibrio':'Abaixo do equilibrio',eq?'#2ecc71':'#e74c3c']].forEach(function(r,i){eh+='<div class="srow" style="'+(i===3?'font-weight:700':'')+'"><span class="sl">'+r[0]+'</span><span style="color:'+r[2]+'">'+r[1]+'</span></div>';});document.getElementById('eq-rows').innerHTML=eh;}
+
+// Simulador
+function calcSim(){
+  var v=+document.getElementById('sl-v').value;
+  var p=+document.getElementById('sl-p').value;
+  var t=+document.getElementById('sl-t').value;
+  var g=+document.getElementById('sl-g').value;
+  document.getElementById('sv-v').textContent=v+' viagens';
+  document.getElementById('sv-p').textContent=p+' ped/dia';
+  document.getElementById('sv-t').textContent='R$ '+t.toLocaleString('pt-BR');
+  document.getElementById('sv-g').textContent=g+' m2';
+  var km=simCD==='ara'?270:400;
+  var cp=Math.round(v*km*3.5);
+  var cd=Math.round(p*22*18);
+  var cg=Math.round(g*25);
+  var ct=cp+cd+cg;
+  var fat=Math.round(p*22*t);
+  var mg=Math.round(((fat-ct)/fat)*100);
+  var rows=[
+    ['Frete primario ('+v+'x ~'+km+'km)','R$ '+cp.toLocaleString('pt-BR'),0],
+    ['Distribuicao final (~R$18/entrega)','R$ '+cd.toLocaleString('pt-BR'),0],
+    ['Galpao (~R$25/m2)','R$ '+cg.toLocaleString('pt-BR'),0],
+    ['Total custo logistico','R$ '+ct.toLocaleString('pt-BR'),1],
+    ['Faturamento estimado','R$ '+fat.toLocaleString('pt-BR'),1],
+    ['Margem apos logistica',mg+'%',1]
+  ];
+  var h='';
+  rows.forEach(function(r){
+    var vc=r[2]&&r[0].indexOf('Margem')>=0?(mg>=0?'#2ecc71':'#e74c3c'):'#f0f2f8';
+    h+='<div class="srow" style="'+(r[2]?'font-weight:700':'')+'"><span class="sl">'+r[0]+'</span><span style="color:'+vc+'">'+r[1]+'</span></div>';
+  });
+  document.getElementById('sim-rows').innerHTML=h;
+  var pm=Math.ceil((ct/22)/t);
+  var fm=Math.round(pm*22*t);
+  var eq=p>=pm;
+  var rows2=[
+    ['Custo total do CD/mes','R$ '+ct.toLocaleString('pt-BR'),'#2ecc71'],
+    ['Pedidos/dia para cobrir CD',pm+' pedidos/dia','#2ecc71'],
+    ['Faturamento minimo mensal','R$ '+fm.toLocaleString('pt-BR'),'#2ecc71'],
+    ['Situacao atual',eq?'Acima do equilibrio':'Abaixo do equilibrio',eq?'#2ecc71':'#e74c3c']
+  ];
+  var eh='';
+  rows2.forEach(function(r,i){
+    eh+='<div class="srow" style="'+(i===3?'font-weight:700':'')+'"><span class="sl">'+r[0]+'</span><span style="color:'+r[2]+'">'+r[1]+'</span></div>';
+  });
+  document.getElementById('eq-rows').innerHTML=eh;
+}
 calcSim();
-var tpls={rp:[{n:'Logistock Logistica',tp:'Operador 3PL',cor:'#4f8ef7',loc:'Sao Jose do Rio Preto/SP &mdash; 20+ anos',svs:['Armazenagem','Distribuicao','Picking','WMS'],dest:['Armazenagem','WMS'],desc:'Especialista em armazenagem e distribuicao no interior paulista. Licencas para alimentos, saude, higiene, cosmeticos e medicamentos.',site:'logistock.log.br',ct:'Contato via site',nota:'Referencia local em Rio Preto ha mais de 20 anos'},{n:'RicooLog',tp:'CD + Transportadora',cor:'#2ecc71',loc:'Av. Percy Gandini, 1305 &mdash; Rio Preto/SP',svs:['CD proprio','Cross docking','Armazenagem','Distribuicao'],dest:['CD proprio','Cross docking'],desc:'CD proprio em Rio Preto com acesso direto a BR-153 e SP-310. Armazenagem inteligente e distribuicao programada.',site:'ricoolog.com.br',ct:'Contato via site',nota:'CD proprio estrategico para distribuicao no noroeste paulista'},{n:'BoxFrio Logistica',tp:'Operador Logistico',cor:'#6c63ff',loc:'Sao Jose do Rio Preto/SP &mdash; 26+ anos',svs:['Armazenagem seco/frio','Cross docking','Distribuicao','Camera fria movel'],dest:['Distribuicao'],desc:'Mais de 26 anos de atuacao no interior de SP. Logistica completa para produtos secos e refrigerados.',site:'boxfrio.com.br',ct:'Contato via site',nota:'Forte experiencia em distribuicao capilar no interior paulista'},{n:'Guarde Mais',tp:'Fulfillment / Dark Store',cor:'#f0a500',loc:'Sao Jose do Rio Preto/SP',svs:['Fulfillment','Dark store','Cross docking','Gestao de pedidos'],dest:['Fulfillment','Dark store'],desc:'Especializada em logistica B2B em Rio Preto. Dark store para entregas rapidas e fulfillment completo.',site:'guardemais.com.br',ct:'Contato via site',nota:'Boa opcao para entregas D+1 nas cidades proximas a Rio Preto'},{n:'Expresso Itamarati',tp:'Transportadora Regional',cor:'#e74c3c',loc:'Av. Tarraf, 2710 &mdash; Jardim Anice, Rio Preto/SP',svs:['Distribuicao regional','Frete fracionado','Coleta'],dest:['Distribuicao regional'],desc:'Maior empresa de logistica de Rio Preto por faturamento. Ampla capilaridade no noroeste paulista.',site:'Google Maps / CNPJ',ct:'Av. Tarraf, 2710',nota:'Principal transportadora regional &mdash; ideal para distribuicao capilar'}],ara:[{n:'LMG Solucoes Logisticas',tp:'Operador 3PL',cor:'#4f8ef7',loc:'Av. Alberto Benassi, 4320 &mdash; Araraquara/SP',svs:['Armazem 4.000m2','Cross docking','Transporte','Paletizacao'],dest:['Armazem 4.000m2','Cross docking'],desc:'Armazem proprio de 4.000m2 com ~2.000 posicoes de paletes, doca coberta, pe direito 12m, acesso direto Rodovia Washington Luiz. Seguranca 24h.',site:'lmglogistica.com.br',ct:'(16) 2315-1067',nota:'UNICA empresa com estrutura 3PL propria em Araraquara &mdash; contato prioritario'},{n:'Logistock Logistica (expansao)',tp:'Operador 3PL',cor:'#2ecc71',loc:'Interior paulista &mdash; consultar disponibilidade em Araraquara',svs:['Armazenagem','Distribuicao','WMS','Picking'],dest:['Armazenagem'],desc:'Atua em Rio Preto e cidades do interior. Verificar disponibilidade para Araraquara.',site:'logistock.log.br',ct:'Contato via site',nota:'Consultar disponibilidade de expansao para a regiao de Araraquara'},{n:'Paulista Express',tp:'Transportadora Regional',cor:'#6c63ff',loc:'Interior de SP &mdash; atende Araraquara e regiao',svs:['Distribuicao regional','Frete fracionado','Coleta'],dest:['Distribuicao regional'],desc:'Especializada no interior paulista com atuacao em Araraquara, Rio Preto e Bauru.',site:'paulistaexpress.com.br',ct:'Contato via site',nota:'Boa opcao para distribuicao capilar nas cidades do interior'},{n:'Rodocargas',tp:'Transportadora Nacional',cor:'#f0a500',loc:'Nacional &mdash; atende Maua, Araraquara, Bauru e regiao',svs:['Frete fracionado','Carga completa','Distribuicao'],dest:['Frete fracionado'],desc:'Atende o trecho Maua &gt; Araraquara e a distribuicao regional. Possibilidade de cotacao integrada.',site:'rodocargas.com.br',ct:'Contato via site',nota:'Pode cobrir frete primario E secundario &mdash; cotacao unica'},{n:'Operadores locais &mdash; Fretebras',tp:'Pesquisa complementar',cor:'#8b93b0',loc:'Araraquara &mdash; pesquisar via Fretebras e sindicato local',svs:['Armazenagem local','Frete regional','Distribuicao'],dest:[],desc:'Para inicio com volume reduzido, operadores locais podem ser mais flexiveis em preco e contrato.',site:'fretebras.com.br',ct:'Pesquisa direta na regiao',nota:'Maior flexibilidade para volumes iniciais pequenos'}]};
-function renderTpl(cd){var h='';tpls[cd].forEach(function(e){h+='<div class="ecard"><div class="ehdr"><span class="enome">'+e.n+'</span><span class="etipo" style="color:'+e.cor+';border-color:'+e.cor+'60;background:'+e.cor+'18">'+e.tp+'</span></div><div style="font-size:12px;color:'+e.cor+';margin-bottom:7px">&rarr; '+e.loc+'</div><div class="esvs">';e.svs.forEach(function(s){h+='<span class="esv'+(e.dest.indexOf(s)>=0?' d':'')+'">'+s+'</span>';});h+='</div><div class="edesc">'+e.desc+'</div><div class="efoot"><span style="font-size:12px;color:#4f8ef7">Site: '+e.site+'</span><span style="font-size:12px;color:#8b93b0">'+e.ct+'</span></div><div class="enota">'+e.nota+'</div></div>';});document.getElementById('tpl-c').innerHTML=h;}
+
+// 3PL
+var tpls={
+  rp:[
+    {n:'Logistock Logistica',tp:'Operador 3PL',cor:'#4f8ef7',loc:'Sao Jose do Rio Preto/SP - 20+ anos no mercado',svs:['Armazenagem','Distribuicao','Picking','WMS','Gestao de estoque'],dest:['Armazenagem','WMS'],desc:'Especialista em armazenagem e distribuicao no interior paulista. Licencas para alimentos, saude, higiene, cosmeticos e medicamentos. Sistema WMS para controle de estoque.',site:'logistock.log.br',ct:'Contato via site',nota:'Referencia local em Rio Preto ha mais de 20 anos'},
+    {n:'RicooLog',tp:'CD + Transportadora',cor:'#2ecc71',loc:'Av. Percy Gandini, 1305 - Vila Toninho, Rio Preto/SP',svs:['CD proprio','Cross docking','Armazenagem','Logistica reversa','Distribuicao'],dest:['CD proprio','Cross docking'],desc:'CD proprio em Rio Preto com acesso direto a BR-153 e SP-310. Armazenagem inteligente, distribuicao programada e monitoramento em tempo real. Frota propria.',site:'ricoolog.com.br',ct:'Contato via site',nota:'CD proprio estrategico para distribuicao no noroeste paulista'},
+    {n:'BoxFrio Logistica',tp:'Operador Logistico',cor:'#6c63ff',loc:'Sao Jose do Rio Preto/SP - 26+ anos',svs:['Armazenagem seco/frio','Coleta','Cross docking','Distribuicao'],dest:['Armazenagem seco/frio','Distribuicao'],desc:'Mais de 26 anos de atuacao no interior de SP. Logistica completa para produtos secos e refrigerados. Forte capilaridade na regiao.',site:'boxfrio.com.br',ct:'Contato via site',nota:'Forte experiencia em distribuicao capilar no interior paulista'},
+    {n:'Guarde Mais',tp:'Fulfillment / Dark Store',cor:'#f0a500',loc:'Sao Jose do Rio Preto/SP',svs:['Fulfillment','Dark store','Cross docking','Gestao de pedidos'],dest:['Fulfillment','Dark store'],desc:'Especializada em logistica B2B em Rio Preto. Dark store para entregas rapidas e fulfillment completo com processos padronizados.',site:'guardemais.com.br',ct:'Contato via site',nota:'Boa opcao para entregas D+1 nas cidades proximas a Rio Preto'},
+    {n:'Expresso Itamarati',tp:'Transportadora Regional',cor:'#e74c3c',loc:'Av. Tarraf, 2710 - Jardim Anice, Rio Preto/SP',svs:['Distribuicao regional','Frete fracionado','Transporte','Coleta'],dest:['Distribuicao regional'],desc:'Maior empresa de logistica de Rio Preto por faturamento. Ampla capilaridade no noroeste paulista. Indicada para distribuicao secundaria CD para cidades.',site:'Google Maps / CNPJ',ct:'Av. Tarraf, 2710',nota:'Principal transportadora regional - ideal para distribuicao capilar'}
+  ],
+  ara:[
+    {n:'LMG Solucoes Logisticas',tp:'Operador 3PL',cor:'#4f8ef7',loc:'Av. Alberto Benassi, 4320 - Lot. Ind. Sao Caetano, Araraquara/SP',svs:['Armazem 4.000m2','Cross docking','Transporte','Paletizacao'],dest:['Armazem 4.000m2','Cross docking'],desc:'Armazem proprio de 4.000m2 com ~2.000 posicoes de paletes, doca coberta, pe direito 12m, acesso direto Rodovia Washington Luiz. Condominio fechado, seguranca 24h.',site:'lmglogistica.com.br',ct:'(16) 2315-1067',nota:'UNICA empresa com estrutura 3PL propria identificada em Araraquara - contato prioritario'},
+    {n:'Logistock Logistica (expansao)',tp:'Operador 3PL',cor:'#2ecc71',loc:'Interior paulista - consultar disponibilidade em Araraquara',svs:['Armazenagem','Distribuicao','WMS','Picking'],dest:['Armazenagem'],desc:'Atua em Rio Preto e cidades do interior. Verificar disponibilidade para Araraquara. Licencas para alimentos, cosmeticos e medicamentos.',site:'logistock.log.br',ct:'Contato via site',nota:'Consultar disponibilidade de expansao para a regiao de Araraquara'},
+    {n:'Paulista Express',tp:'Transportadora Regional',cor:'#6c63ff',loc:'Interior de SP - forte presenca em Araraquara e regiao',svs:['Distribuicao regional','Frete fracionado','Coleta'],dest:['Distribuicao regional'],desc:'Especializada no interior paulista com atuacao em Araraquara, Rio Preto e Bauru. Indicada para distribuicao secundaria a partir do CD.',site:'paulistaexpress.com.br',ct:'Contato via site',nota:'Boa opcao para distribuicao capilar nas cidades do interior'},
+    {n:'Rodocargas',tp:'Transportadora Nacional',cor:'#f0a500',loc:'Nacional - atende Maua, Araraquara, Bauru, Campinas e regiao',svs:['Frete fracionado','Carga completa','Distribuicao'],dest:['Frete fracionado'],desc:'Atende tanto o trecho Maua > Araraquara quanto a distribuicao regional. Cotacao integrada possivel para frete primario e secundario.',site:'rodocargas.com.br',ct:'Contato via site',nota:'Pode cobrir frete primario E distribuicao secundaria - cotacao unica'},
+    {n:'Operadores locais - Fretebras',tp:'Pesquisa complementar',cor:'#8b93b0',loc:'Araraquara - pesquisar via Fretebras e sindicato local',svs:['Armazenagem local','Frete regional','Distribuicao'],dest:[],desc:'Para inicio com volume reduzido, operadores locais menores podem ser mais flexiveis em preco e contrato.',site:'fretebras.com.br',ct:'Pesquisa direta na regiao',nota:'Maior flexibilidade para volumes iniciais pequenos'}
+  ]
+};
+
+function renderTpl(cd){
+  var h='';
+  tpls[cd].forEach(function(e){
+    h+='<div class="ecard">';
+    h+='<div class="ehdr">';
+    h+='<span style="font-size:14px;font-weight:700;color:#f0f2f8">'+e.n+'</span>';
+    h+='<span style="font-size:11px;padding:3px 9px;border-radius:20px;border:1px solid;color:'+e.cor+';border-color:'+e.cor+'60;background:'+e.cor+'18">'+e.tp+'</span>';
+    h+='</div>';
+    h+='<div style="font-size:12px;color:'+e.cor+';margin-bottom:7px">&rarr; '+e.loc+'</div>';
+    h+='<div class="esvs">';
+    e.svs.forEach(function(s){h+='<span class="esv'+(e.dest.indexOf(s)>=0?' d':'')+'">'+s+'</span>';});
+    h+='</div>';
+    h+='<div class="edesc">'+e.desc+'</div>';
+    h+='<div class="efoot">';
+    h+='<span style="font-size:12px;color:#4f8ef7">Site: '+e.site+'</span>';
+    h+='<span style="font-size:12px;color:#8b93b0">'+e.ct+'</span></div>';
+    h+='<div class="enota">&#10003; '+e.nota+'</div>';
+    h+='</div>';
+  });
+  document.getElementById('tpl-c').innerHTML=h;
+}
 renderTpl('rp');
-var gals={rp:[{n:'Condominio BR500',a:'a partir 400m2',p:'Sob consulta',tags:['Cond. logistico','Rod. BR-265'],gl:1,i:'Portaria 24h, patio de manobras, acesso direto a rodovia'},{n:'LOG Rio Preto',a:'a partir 1.068m2',p:'Sob consulta',tags:['Cond. logistico','Rod. Washington Luis'],gl:1,i:'Modular e flexivel, docas, sprinklers, piso industrial'},{n:'Parque Logistico Lupa',a:'a partir 1.750m2',p:'Sob consulta',tags:['Cond. logistico','SP-425 Km179'],gl:1,i:'12m altura, 4 docas/modulo, seguranca 24h'},{n:'Barracao Parq. Ind. Carlos Arnaldo',a:'~600m2',p:'~R$ 10.000/mes',tags:['Simples'],gl:0,i:'Pe direito 7m, pronto para uso, 2 unidades'},{n:'Distrito Industrial &mdash; varios',a:'500 a 1.800m2',p:'a partir R$ 8.000/mes',tags:['Simples'],gl:0,i:'Diversas opcoes com acesso a caminhao pesado'}],ara:[{n:'LMG Logistica (3PL proprio)',a:'4.000m2 | ~2.000 paletes',p:'Cotacao direta',tags:['Operador 3PL','Washington Luiz'],gl:1,i:'Melhor opcao: 3PL completo. Tel: (16) 2315-1067'},{n:'Proximo ao Aeroporto',a:'1.464m2 construidos',p:'Sob consulta',tags:['Industrial'],gl:0,i:'45.494m2 terreno, frente rodovia, acesso todas rodovias'},{n:'2o Distrito Industrial',a:'1.240m2 galpao',p:'Sob consulta',tags:['Industrial'],gl:0,i:'Terreno 6.200m2, plataforma carga/descarga'},{n:'Barracoes Jardim Marivan',a:'~525m2',p:'~R$ 10.000/mes',tags:['Simples'],gl:0,i:'Localizacao central, ideal distribuicao local'},{n:'Modulos locaveis (3 unidades)',a:'638&ndash;698m2 cada',p:'~R$ 10.000/mes cada',tags:['Flexivel'],gl:0,i:'Locar 1 ou mais modulos conforme crescimento'}]};
-function renderGal(cd){var h='<div style="font-size:12px;color:#8b93b0;margin-bottom:11px">Opcoes em '+(cd==='rp'?'S. J. Rio Preto':'Araraquara')+'</div>';gals[cd].forEach(function(g){h+='<div class="gi"><div class="gi-top"><span class="gi-name">'+g.n+'</span><span class="gi-price">'+g.p+'</span></div><div class="gi-tags">';g.tags.forEach(function(t){h+='<span class="gtag'+(g.gl?' gl':'')+'">'+t+'</span>';});h+='<span class="gtag">'+g.a+'</span></div><div class="gi-info">'+g.i+'</div></div>';});h+='<div class="ref">Referencia 2025: R$ 20&ndash;35/m2/mes para galpoes de padrao medio no interior paulista.</div>';document.getElementById('gal-c').innerHTML=h;}
+
+// Galpoes
+var gals={
+  rp:[
+    {n:'Condominio BR500',a:'a partir 400m2',p:'Sob consulta',tags:['Cond. logistico','Rod. BR-265'],gl:1,i:'Portaria 24h, patio de manobras, acesso direto a rodovia'},
+    {n:'LOG Rio Preto',a:'a partir 1.068m2',p:'Sob consulta',tags:['Cond. logistico','Rod. Washington Luis'],gl:1,i:'Modular e flexivel, docas, sprinklers, piso industrial'},
+    {n:'Parque Logistico Lupa',a:'a partir 1.750m2',p:'Sob consulta',tags:['Cond. logistico','SP-425 Km179'],gl:1,i:'12m altura, 4 docas/modulo, seguranca 24h'},
+    {n:'Barracao Parq. Ind. Carlos Arnaldo',a:'~600m2',p:'~R$ 10.000/mes',tags:['Simples'],gl:0,i:'Pe direito 7m, pronto para uso, 2 unidades'},
+    {n:'Distrito Industrial - varios',a:'500 a 1.800m2',p:'a partir R$ 8.000/mes',tags:['Simples'],gl:0,i:'Diversas opcoes com acesso a caminhao pesado'}
+  ],
+  ara:[
+    {n:'LMG Logistica (3PL proprio)',a:'4.000m2 | ~2.000 paletes',p:'Cotacao direta',tags:['Operador 3PL','Washington Luiz'],gl:1,i:'Melhor opcao: 3PL completo armazem + distribuicao. Tel: (16) 2315-1067'},
+    {n:'Proximo ao Aeroporto de Araraquara',a:'1.464m2 construidos',p:'Sob consulta',tags:['Industrial'],gl:0,i:'45.494m2 terreno, frente rodovia, acesso a todas as rodovias'},
+    {n:'2o Distrito Industrial (frente Cutrale)',a:'1.240m2 galpao',p:'Sob consulta',tags:['Industrial'],gl:0,i:'Terreno 6.200m2, plataforma carga/descarga'},
+    {n:'Barracoes Jardim Marivan',a:'~525m2',p:'~R$ 10.000/mes',tags:['Simples'],gl:0,i:'Localizacao central, ideal distribuicao local'},
+    {n:'Modulos locaveis (3 unidades)',a:'638-698m2 cada',p:'~R$ 10.000/mes cada',tags:['Flexivel'],gl:0,i:'Locar 1 ou mais modulos conforme crescimento'}
+  ]
+};
+
+function renderGal(cd){
+  var h='<div style="font-size:12px;color:#8b93b0;margin-bottom:11px">Opcoes em '+(cd==='rp'?'S. J. Rio Preto':'Araraquara')+'</div>';
+  gals[cd].forEach(function(g){
+    h+='<div class="gi"><div class="gi-top">';
+    h+='<span class="gi-name">'+g.n+'</span>';
+    h+='<span class="gi-price">'+g.p+'</span></div>';
+    h+='<div class="gi-tags">';
+    g.tags.forEach(function(t){h+='<span class="gtag'+(g.gl?' gl':'')+'">'+t+'</span>';});
+    h+='<span class="gtag">'+g.a+'</span></div>';
+    h+='<div class="gi-info">'+g.i+'</div></div>';
+  });
+  h+='<div class="ref">Referencia 2025: R$ 20-35/m2/mes para galpoes de padrao medio no interior paulista.</div>';
+  document.getElementById('gal-c').innerHTML=h;
+}
 renderGal('rp');
+
 })();
 </script>
 </body>
